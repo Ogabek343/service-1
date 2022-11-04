@@ -32,7 +32,7 @@ public class ProductController {
     }
 
     @PostMapping("/creation")
-    public ApiResponseWithObject createProduct(@RequestBody ProductDetailsDto productDetailsDto, @RequestParam("file") MultipartFile[] files) {
+    public ApiResponseWithObject createProduct(@ModelAttribute ProductDetailsDto productDetailsDto, @RequestParam("file") MultipartFile[] files) {
         return productService.createProduct(productDetailsDto,files);
     }
 

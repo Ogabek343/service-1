@@ -5,10 +5,11 @@ import com.product.service.dto.ApiResponseWithObject;
 import com.product.service.entity.Image;
 import com.product.service.service.image.ImageService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.net.URLEncoder;
 
 @RestController
 @RequestMapping("/image")
@@ -35,7 +36,7 @@ public class ImageController {
      * @param files files data
      * @return return saved images info list with ImageResponse class.
      */
-    @PostMapping("/uploads")
+    @PostMapping(value = "/uploads")
     public ApiResponseWithList uploadMultiFiles(@RequestParam("files") MultipartFile[] files) {
         return imageService.uploadMultipleFiles(files);
     }
@@ -49,7 +50,7 @@ public class ImageController {
     @GetMapping("/show/{fileName}")
     public ResponseEntity<byte[]> getImage(@PathVariable String fileName) throws Exception {
         Image image = getImageByName(fileName);
-        return ResponseEntity.ok().contentType(MediaType.valueOf(image.getFileType())).body(image.getData());
+        return ResponseEntity.ok().contentType(MediaType.valueOf(image.getFileType())).body((image.getData()));
     }
 
 

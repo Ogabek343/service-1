@@ -52,4 +52,35 @@ public class ProductDetailsDto {
     private String description;
     // prosmotr
     private Integer viewCount;
+
+    public ProductDetailsDto(Long userId, List<Image> images, Double price, Currency currency, Integer roomCount, Double totalArea, Integer floorNumber, Integer floorCount, String address, Boolean isFavorite, Double lat, Double lan, Double longitude, String phoneNumber, Boolean enablePhone, Boolean enableChat, String createdAt, String updatedAt, Double livingArea, Boolean balcony, Boolean withFurniture, Integer builtYear, HomeType type, HomeMaterial material, Boolean elevator, Boolean parking, String description, Integer viewCount) {
+        this.userId = userId;
+        this.images = images;
+        this.price = price;
+        this.currency = currency;
+        this.roomCount = roomCount;
+        this.totalArea = totalArea;
+        this.floorNumber = floorNumber;
+        this.floorCount = floorCount;
+        this.address = address;
+        this.isFavorite = isFavorite;
+        this.lat = lat;
+        this.lan = lan;
+        this.longitude = longitude;
+        this.phoneNumber = phoneNumber;
+        this.enablePhone = enablePhone;
+        this.enableChat = enableChat;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.livingArea = livingArea;
+        this.balcony = balcony;
+        this.withFurniture = withFurniture;
+        this.builtYear = builtYear;
+        this.type = type;
+        this.material = material;
+        this.elevator = elevator;
+        this.parking = parking;
+        this.description = description;
+        this.viewCount = viewCount;
+    }
 }

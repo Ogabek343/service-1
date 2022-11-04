@@ -19,4 +19,5 @@ public interface ImageService {
 
     List<Image> images(MultipartFile[] files);
 
+    List<Image> findAllImages(Long id);
 }

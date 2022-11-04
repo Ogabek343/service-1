@@ -50,4 +50,10 @@ public class ImageServiceImplementation implements ImageService {
         return images;
     }
 
+    @Override
+    public List<Image> findAllImages(Long id) {
+        return imageRepository.findAllById(id);
+    }
+
+
 }

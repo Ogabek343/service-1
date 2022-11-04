@@ -70,13 +70,10 @@ public class ProductServiceImplementation implements ProductService {
         List<Product> products = productRepository.findAll();
         List<ListOfProductsDto> list = new ArrayList<>();
         for (Product product : products) {
+            List<Image> images = imageService.findAllImages(product.getId());
+            product.setImages(images);
             ListOfProductsDto productsDto = new ListOfProductsDto();
-            if(product.getImages().equals(null)){
-                productsDto.setImages(new ArrayList<>());
-            }
-            else {
-                productsDto.setImages(product.getImages());
-            }
+            productsDto.setImages(product.getImages());
             productsDto.setId(product.getId());
             productsDto.setUserId(product.getUserId());
             productsDto.setAddress(product.getAddress());
@@ -91,6 +88,7 @@ public class ProductServiceImplementation implements ProductService {
             productsDto.setPhoneNumber(product.getPhoneNumber());
             productsDto.setTotalArea(product.getTotalArea());
             productsDto.setRoomCount(product.getRoomCount());
+
             list.add(productsDto);
         }
         return apiResponse(new ArrayList<>(list));
@@ -111,7 +109,6 @@ public class ProductServiceImplementation implements ProductService {
         product.setEnablePhone(detailsDto.getEnablePhone());
         product.setEnableChat(detailsDto.getEnableChat());
         product.setAreaLength(detailsDto.getLivingArea());
-        product.setTotalArea(detailsDto.getTotalArea());
         product.setWithFurniture(detailsDto.getWithFurniture());
         product.setBalcony(detailsDto.getBalcony());
         product.setBuiltYear(detailsDto.getBuiltYear());
