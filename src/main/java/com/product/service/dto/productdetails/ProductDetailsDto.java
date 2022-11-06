@@ -6,11 +6,13 @@ import com.product.service.entity.constants.Currency;
 import com.product.service.entity.constants.HomeMaterial;
 import com.product.service.entity.constants.HomeType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
+@NoArgsConstructor
 @Setter
 public class ProductDetailsDto {
 

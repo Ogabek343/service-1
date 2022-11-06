@@ -60,7 +60,25 @@ public class ProductServiceImplementation implements ProductService {
     @Override
     public ApiResponseWithObject getProductById(Long id) {
         Product productEntity = findProductById(id);
-        return apiResponse(productEntity);
+        ProductDetailsDto productDetailsDto = new ProductDetailsDto();
+        List<Image> images = imageService.findAllImages(productEntity.getId());
+        productEntity.setImages(images);
+        productDetailsDto.setImages(imageService.setImageDetails(images));
+        productDetailsDto.setId(productEntity.getId());
+        productDetailsDto.setUserId(productEntity.getUserId());
+        productDetailsDto.setAddress(productEntity.getAddress());
+        productDetailsDto.setCurrency(productEntity.getCurrency());
+        productDetailsDto.setEnableChat(productEntity.getEnableChat());
+        productDetailsDto.setFloorCount(productEntity.getFloorCount());
+        productDetailsDto.setLan(productEntity.getLan());
+        productDetailsDto.setLat(productEntity.getLat());
+        productDetailsDto.setFloorNumber(productEntity.getFloorNumber());
+        productDetailsDto.setPrice(productEntity.getPrice());
+        productDetailsDto.setIsFavorite(productEntity.getIsFavorite());
+        productDetailsDto.setPhoneNumber(productEntity.getPhoneNumber());
+        productDetailsDto.setTotalArea(productEntity.getTotalArea());
+        productDetailsDto.setRoomCount(productEntity.getRoomCount());
+        return apiResponse(productDetailsDto);
     }
 
     @Override
@@ -150,6 +168,13 @@ public class ProductServiceImplementation implements ProductService {
         apiResponse.setStatus(true);
         apiResponse.setMessage("SUCCESS");
         apiResponse.setData(products);
+        return apiResponse;
+    }
+    private ApiResponseWithObject apiResponse(ProductDetailsDto product) {
+        ApiResponseWithObject apiResponse = new ApiResponseWithObject();
+        apiResponse.setStatus(true);
+        apiResponse.setMessage("SUCCESS");
+        apiResponse.setData(product);
         return apiResponse;
     }
 }

@@ -36,6 +36,7 @@ public class ImageController {
      * @param files files data
      * @return return saved images info list with ImageResponse class.
      */
+
     @PostMapping(value = "/uploads")
     public ApiResponseWithList uploadMultiFiles(@RequestParam("files") MultipartFile[] files) {
         return imageService.uploadMultipleFiles(files);

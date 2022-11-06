@@ -13,15 +13,11 @@ import lombok.Setter;
 public class ImageResponse {
 
     private String uuid;
-    private String fileName;
-    private String fileType;
     private long size;
     private String linkForDownload;
 
     public ImageResponse(Image image) {
         setUuid(image.getUuid());
-        setFileName(image.getFileName());
-        setFileType(image.getFileType());
         setSize(image.getSize());
     }
 }

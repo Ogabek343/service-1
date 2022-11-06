@@ -65,8 +65,6 @@ public class ImageServiceImplementation implements ImageService {
         List<ImageResponse> imageResponse = new ArrayList<>();
         images.stream().forEach(image -> {
             ImageResponse imageResponse1 = new ImageResponse();
-            imageResponse1.setFileName(image.getFileName());
-            imageResponse1.setFileType(image.getFileType());
             imageResponse1.setUuid(image.getUuid());
             imageResponse1.setSize(image.getSize());
             imageResponse1.setLinkForDownload(encoder.encode(image));

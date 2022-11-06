@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class URLEncoder {
-    public static String decoder(String givenURL){
+    private static String decoder(String givenURL){
         try {
             givenURL = "http://localhost:8080/image/show/"+givenURL;
             String decodedURL = URLDecoder.decode(givenURL , StandardCharsets.UTF_8.name());

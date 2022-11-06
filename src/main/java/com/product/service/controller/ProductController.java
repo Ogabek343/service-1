@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @PutMapping("/edition")
-    public ApiResponseWithObject updateProduct(@RequestBody ProductDetailsDto productDetailsDto) {
+    public ApiResponseWithObject updateProduct(@ModelAttribute ProductDetailsDto productDetailsDto) {
         return productService.updateProduct(productDetailsDto);
     }
 
